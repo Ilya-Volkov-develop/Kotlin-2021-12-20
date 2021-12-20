@@ -2,6 +2,7 @@ package ru.iliavolkov.firstappkotlin
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -25,9 +26,17 @@ class MainActivity : AppCompatActivity() {
         btn.setOnClickListener {
             Toast.makeText(this, "Нажали на кнопку = $btn",Toast.LENGTH_SHORT).show()
             text1.text = dataClass.name
-            text2.text = dataClass.age.toString()
+            text2.text = "${dataClass.age}"
             text3.text = "${copy.name} ${copy.age}"
+            for (i in 0..2){
+                when(i){
+                    0->Log.d("MyLog", "${text1.text}")
+                    1->Log.d("MyLog", "${text2.text}")
+                    2->Log.d("MyLog", "${text3.text}")
+                }
+            }
         }
+
     }
 
     private fun init(){
